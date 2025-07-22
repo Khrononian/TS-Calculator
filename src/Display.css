@@ -1,0 +1,9 @@
+.background {
+    background: red;
+    padding: .7em;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+}

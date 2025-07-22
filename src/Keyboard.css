@@ -1,0 +1,22 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 65px);
+    gap: 4px;
+    justify-content: center;
+    grid-template-areas: 
+    '. . . .'
+    '. . . .'
+    '. . . .'
+    '. . . .'
+    '. . equal equal';
+    margin-top: 1em;
+}
+.board div {
+    background: green;
+    padding: .7em;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.board div:nth-child(19) {
+    grid-area: equal;
+}
