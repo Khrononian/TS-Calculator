@@ -2,10 +2,12 @@ import React from 'react'
 import './Display.css'
 
 type Props = {
-    value: number
+    value: string
+    secondValue: string
+    operation: boolean
 }
 
-const Display: React.FC<Props> = ({ value }) => {
+const Display: React.FC<Props> = ({ value, secondValue, operation }) => {
   return (
     <div className='background'>
         <span>{value}</span>
