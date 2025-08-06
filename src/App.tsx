@@ -29,17 +29,20 @@ function App() {
       // savedValues[0] + targetText
       console.log('FIRST', savedValues, savedValues[0], newValues)
     }
-    else if (operation == true && secondNumbers == false) {
+    else if (operation == true && secondNumbers == false ) {
       setNewValues(prev => prev.concat(targetText))
       // savedValues.push(value)
 
       setValue(targetText)
       setSecondNumbers(true)
+      console.log('SECONDS', newValues)
     } else {
       setValue(prev => prev + targetText)
-      setNewValues(prev => [prev + targetText])
+      // setNewValues(prev => [prev + targetText])
+      setNewValues(prev => [...prev.slice(0, 1), prev.slice(1) + targetText])
+      console.log('SECONDS 2', value, newValues)
     }
-    // else if (operation == true) setValue(prev => prev + targetText)
+    
     
     if (targetText == 'C') {
       setValue('0')
@@ -67,7 +70,7 @@ function App() {
     setNamedOperation(e.currentTarget.className)
     // savedValues.push(value)
     console.log('AFTER', savedValues, newValues)
-    if (targetText == '=') {
+    if (targetText == '=' || namedOperation == 'Add' || namedOperation == 'Subtract' || namedOperation == 'Multiply' || namedOperation == 'Divide') {
       switch (namedOperation) {
         case 'Add':
           console.log('ADDING', savedValues, value)
@@ -93,7 +96,7 @@ function App() {
     setValue((Number(newValues[0]) + Number(newValues[1])).toString())
     setNewValues([(Number(newValues[0]) + Number(newValues[1])).toString()])
     console.log('NEWS NEW', value, newValues)
-    setOperation(false)
+    // setOperation(false)
     setSecondNumbers(false)
   }
 
@@ -101,7 +104,7 @@ function App() {
     setValue((Number(newValues[0]) - Number(newValues[1])).toString())
     setNewValues([(Number(newValues[0]) - Number(newValues[1])).toString()])
     console.log('NEWS NEW', value, newValues)
-    setOperation(false)
+    // setOperation(false)
     setSecondNumbers(false)
   }
 
@@ -109,7 +112,7 @@ function App() {
     setValue((Number(newValues[0]) * Number(newValues[1])).toString())
     setNewValues([(Number(newValues[0]) * Number(newValues[1])).toString()])
     console.log('NEWS NEW', value, newValues)
-    setOperation(false)
+    // setOperation(false)
     setSecondNumbers(false)
   }
 
@@ -117,7 +120,7 @@ function App() {
     setValue((Number(newValues[0]) / Number(newValues[1])).toString())
     setNewValues([(Number(newValues[0]) / Number(newValues[1])).toString()])
     console.log('NEWS NEW', value, newValues)
-    setOperation(false)
+    // setOperation(false)
     setSecondNumbers(false)
   }
 
