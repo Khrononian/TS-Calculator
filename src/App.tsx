@@ -29,18 +29,20 @@ function App() {
       // savedValues[0] + targetText
       console.log('FIRST', savedValues, savedValues[0], newValues)
     }
-    else if (operation == true && secondNumbers == false ) {
+    else if (operation == true && secondNumbers == false && targetText.match(/\d/g)) {
+      // setNewValues([newValues[0].replace(',', '')])
       setNewValues(prev => prev.concat(targetText))
-      // savedValues.push(value)
+      console.log('BETWEEN', newValues)
+      
 
       setValue(targetText)
       setSecondNumbers(true)
       console.log('SECONDS', newValues)
-    } else {
+    } else if (operation == true && secondNumbers == true && targetText != 'DEL' ) {
       setValue(prev => prev + targetText)
       // setNewValues(prev => [prev + targetText])
       setNewValues(prev => [...prev.slice(0, 1), prev.slice(1) + targetText])
-      console.log('SECONDS 2', value, newValues)
+      console.log('SECONDS 2', value, newValues, decimal)
     }
     
     
@@ -52,12 +54,24 @@ function App() {
       setNewValues([])
       setNamedOperation('')
     }
-    else if (targetText == 'DEL' && value !== '0' && value.length != 1) setValue(value.slice(0, -1))
-    else if (targetText == '.' && decimal == false) {
+    if (targetText == 'DEL' && value !== '0' ) {
+      setValue(value.slice(0, -1))
+      setNewValues(prev => prev.slice(0, newValues.length - 1))
+      console.log('DELETES', newValues, newValues.slice(), value, value.length)
+      if (value.length == 1 ) {
+        console.log('OINK')
+        setValue('0')
+        setNewValues(['0'])
+      }
+    }
+    
+    if (targetText == '.' && decimal == false) {
+      setNewValues([newValues[0].concat('.')])
       setValue(value + '.')
       setDecimal(true)
+      console.log('DECI VAL', value, newValues[1], decimal)
     }
-    else if (targetText == '+/-' && value != '0' && value[0] != '-' && value.match(/\d/g)) setValue(prev => `-${prev}`)
+    if (targetText == '+/-' && value != '0' && value[0] != '-' && value.match(/\d/g)) setValue(prev => `-${prev}`)
     else if (value[0] == '-') setValue(prev => prev.slice(1))
     
     
@@ -65,7 +79,7 @@ function App() {
 
   const handleOperations = (e: React.MouseEvent, ) => {
     const targetText = e.currentTarget.innerHTML
-    console.log('HANDLING', value)
+    console.log('HANDLING', value, decimal)
     setOperation(true)
     setNamedOperation(e.currentTarget.className)
     // savedValues.push(value)
