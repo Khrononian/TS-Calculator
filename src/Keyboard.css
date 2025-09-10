@@ -1,4 +1,5 @@
 .board {
+    background: #353935;
     display: grid;
     grid-template-columns: repeat(4, 65px);
     gap: 4px;
@@ -9,11 +10,14 @@
     '. . . .'
     '. . . .'
     '. . equal equal';
-    margin-top: 1em;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /* font-size: 1.5rem; */
 }
 .board div {
-    background: green;
-    padding: .7em;
+    background: #28282B;
+    padding: 1.2em;
     cursor: pointer;
     border-radius: 3px;
 }

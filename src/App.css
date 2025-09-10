@@ -6,9 +6,9 @@
 }
 
 .mainDiv {
-  background: grey;
-  width: 400px;
-  height: 500px;
+  background: #343434;
+  width: 300px;
+  height: fit-content;
   border-radius: 5px;
-  padding: .7em
+  /* padding: .7em */
 }
