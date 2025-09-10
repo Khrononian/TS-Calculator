@@ -6,11 +6,12 @@ type Props = {
     secondValue: string
     operation: boolean
 }
+const formatNumbers = new Intl.NumberFormat('en-US')
 
 const Display: React.FC<Props> = ({ value, secondValue, operation }) => {
   return (
     <div className='background'>
-        <span>{value}</span>
+        <span>{formatNumbers.format(Number(value))}</span>
     </div>
   )
 }
