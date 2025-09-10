@@ -27,7 +27,7 @@ function App() {
       setValue(prev => prev + targetText)
       setNewValues(prev => [prev + targetText])
       // savedValues[0] + targetText
-      console.log('FIRST', savedValues, savedValues[0], newValues)
+      console.log('FIRST', savedValues, savedValues[0], newValues, )
     }
     else if (operation == true && secondNumbers == false && targetText.match(/\d/g)) {
       // setNewValues([newValues[0].replace(',', '')])
