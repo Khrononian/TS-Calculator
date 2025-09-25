@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [value, setValue] = useState('0')
-  const [secondValue, setSecondValue] = useState('0')
+  const [secondValue, ] = useState('0')
   const [namedOperation, setNamedOperation] = useState('')
   const [decimal, setDecimal] = useState(false);
   const [operation, setOperation] = useState(false)
@@ -69,7 +69,6 @@ function App() {
       setNewValues([newValues[0].concat('.')])
       setValue(value + '.')
       setDecimal(true)
-      console.log('DECI VAL', value, newValues[1], decimal)
     }
     if (targetText == '+/-' && value != '0' && value[0] != '-' && value.match(/\d/g)) setValue(prev => `-${prev}`)
     else if (value[0] == '-') setValue(prev => prev.slice(1))
