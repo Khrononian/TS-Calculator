@@ -1,5 +1,4 @@
 .background {
-    /* background: red; */
     padding: .7em;
     width: 85%;
     display: flex;
@@ -7,4 +6,11 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5rem;
+}
+
+span {
+    background: #28282B;
+    width: 100%;
+    text-align: right;
+    padding: .4em;
 }
